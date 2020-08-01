@@ -1,0 +1,52 @@
+<div class='detail'>
+  <div class='back-btn'>
+    <button (click)='onRoot()'> Back </button>
+  </div>
+
+  <div class="detail-item">
+    Block Height: {{ transactionDetail.block_height }}
+  </div>
+  <div class="detail-item">
+    Block Index: {{ transactionDetail.block_index }}
+  </div>
+  <div class="detail-item">
+    Hash: {{ transactionDetail.hash }}
+  </div>
+  <div class="detail-item">    
+    Inputs: {{ transactionDetail.inputs.length }}
+  </div>
+  <div class="detail-item">    
+    Out: {{ transactionDetail.out.length }}
+  </div>
+  <div class="detail-item">
+    Lock Time: {{ transactionDetail.lock_time | date:'yyyy-MM-dd HH:mm' }}
+  </div>
+  <div class="detail-item">    
+    Relayed By: {{ transactionDetail.relayed_by }}
+  </div>
+  <div class="detail-item">    
+    Result: {{ transactionDetail.result | satoshiToCoin | number: '2.2-3' }} BCT
+  </div>
+  <div class="detail-item">    
+    Size: {{ transactionDetail.size }}
+  </div>
+  <div class="detail-item">
+    time: {{ transactionDetail.time | date:'yyyy-MM-dd HH:mm' }}
+  </div>
+  <div class="detail-item">    
+    tx_index: {{ transactionDetail.tx_index }}
+  </div>
+  <div class="detail-item">    
+    vin_sz: {{ transactionDetail.vin_sz }}
+  </div>
+  <div class="detail-item">    
+    vout_sz: {{ transactionDetail.vout_sz }}
+  </div>
+  <div class="detail-item">    
+    weight: {{ transactionDetail.weight }}
+  </div>
+  <div class="detail-item">    
+    ver: {{ transactionDetail.ver }}
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+<div class="txn-title">
+    Transactions for BCT Address: {{ bct_address }}
+</div>
+
+<div class="txn-search">
+  <input type='text' [(ngModel)]='txnFilter' placeholder='Filter by value in Satoshi'>
+</div>
+
+<div class="txn-result">
+  <div *ngFor="let transaction of filteredTransactions" class="txn-item">
+    <div class="txn-time">{{ transaction.time | date:'yyyy-MM-dd HH:mm' }}</div>
+
+    <div class="txn-id">
+      <a [routerLink]="['/transactions', transaction.hash]">
+        {{ transaction.hash }}
+      </a>
+    </div>
+
+    <div class="txn-value" [style.color]="(transaction.result | satoshiToCoin) > 0 ? '#008000' : '#ff0000'"> 
+      {{ transaction.result | satoshiToCoin | number: '2.2-3' }} BCT 
+    </div>
+    
+    <div class="txn-length"> 
+      [{{ transaction.out.length }}]
+    </div>
+  </div>
+</div>

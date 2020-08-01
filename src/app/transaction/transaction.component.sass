@@ -1,0 +1,48 @@
+$display: flow-root
+
+@mixin border-bgcolor
+  border: 1px solid #847d7d
+  background-color: #f7f7f7
+
+.txn-title
+  display: flex  
+  padding: 20px 15px 15px
+
+.txn-search
+  display: flex
+  padding: 0 15px
+
+input[type=text]
+  padding: 10px
+  margin: 0
+  border-radius: 5px
+  box-sizing: border-box
+  @include border-bgcolor
+  width: 100%
+
+.txn-item
+  border-radius: 5px
+  padding: 15px
+  margin: 15px
+  @include border-bgcolor
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  flex-wrap: wrap
+
+  .txn-time
+    align-items: center
+    flex-basis: 15%
+
+  .txn-id
+    align-items: center
+    flex-basis: 70%
+
+  .txn-value
+    flex-basis: 10%
+
+  .txn-length
+    color: #282828
+    flex-basis: 5%
+a
+ color: #293972
