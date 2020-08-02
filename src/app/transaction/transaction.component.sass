@@ -3,7 +3,8 @@ $display: flow-root
 @mixin border-bgcolor
   border: 1px solid #847d7d
   background-color: #f7f7f7
-
+  border-radius: 5px
+  
 .txn-title
   display: flex  
   padding: 20px 15px 15px
@@ -15,13 +16,11 @@ $display: flow-root
 input[type=text]
   padding: 10px
   margin: 0
-  border-radius: 5px
   box-sizing: border-box
   @include border-bgcolor
   width: 100%
 
 .txn-item
-  border-radius: 5px
   padding: 15px
   margin: 15px
   @include border-bgcolor
