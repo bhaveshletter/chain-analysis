@@ -12,6 +12,7 @@ import { TransactionDetailComponent } from './transaction/transaction-detail/tra
 import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { Page404Component } from './page404/page404.component';
+import { EpochToTimestampPipe } from './shared/epoch-to-timestamp.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { Page404Component } from './page404/page404.component';
     SatoshiToCoinPipe,
     TransactionDetailComponent,
     Page404Component,
+    EpochToTimestampPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
