@@ -1,0 +1,34 @@
+@mixin border-bgcolor
+  box-sizing: border-box
+  border: 1px solid #847d7d
+  background-color: #f7f7f7
+  border-radius: 5px
+
+.bct-search
+  display: flex
+  padding: 0 15px
+  flex-direction: row
+
+form
+ display: flex
+ flex-direction: row
+
+input[type=search]
+  padding: 10px
+  margin: 0
+  @include border-bgcolor
+
+button
+  text-align: center
+  display: flex
+  font-size: 16px
+  cursor: pointer
+  padding: 7px 20px
+  margin-top: 1px
+  margin-left: 20px
+  @include border-bgcolor
+  color: #282828
+
+
+  
+

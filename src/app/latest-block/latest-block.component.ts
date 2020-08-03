@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-latest-block',
   templateUrl: './latest-block.component.html',
-  styleUrls: ['./latest-block.component.sass']
+  styleUrls: ['./latest-block.component.sass'],
 })
 export class LatestBlockComponent implements OnInit {
   // error: string;
@@ -13,29 +13,29 @@ export class LatestBlockComponent implements OnInit {
 
   myWebSocket: WebSocketSubject<any> = webSocket(environment.wsURL);
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.myWebSocket.subscribe(
       // Called whenever there is a message from the server
-      dataFromServer => {
+      (dataFromServer) => {
         // let data = JSON.stringify(dataFromServer);
-        this.block[0] = dataFromServer.x.size;
+        this.block[0] = dataFromServer.x.height;
         this.block[1] = new Date(dataFromServer.x.time);
       },
-      err => {
+      (err) => {
         // this.error =`${err || 'Something went wrong during'}  - Latest block API call`
       },
-      // Called if WebSocket API signals some kind of error    
+      // Called if WebSocket API signals some kind of error
       () => {
         console.log('Web socket completed');
       }
-    )
-     this.myWebSocket.next({"op": "unconfirmed_sub"});
+    );
+    this.myWebSocket.next({ op: 'blocks_sub' });
   }
 
   ngOnDestroy(): void {
-    this.myWebSocket.next({"op": "unconfirmed_unsub"});
+    this.myWebSocket.next({ op: 'blocks_unsub' });
+    this.myWebSocket.complete();
   }
-
 }

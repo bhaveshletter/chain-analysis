@@ -1,28 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { BitcoinService } from '../bitcoin.service'
+import { BitcoinService } from '../bitcoin.service';
+import { Router } from '@angular/router';
+import { environment } from '../../environments/environment'
 
 @Component({
   // selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.sass']
+  styleUrls: ['./layout.component.sass'],
 })
 export class LayoutComponent implements OnInit {
-  // lbHeight: number;
-  // error: string;
+  bctAddress: string = '';
+  bctRegex = environment.bctAddressRegex;
+  submitted: boolean = false;
 
-  constructor(private bitcoinService: BitcoinService) { }
+  constructor(private bitcoinService: BitcoinService, private router: Router) {}
 
-  ngOnInit(): void {    
-    // this.bitcoinService.getLatestBlock().subscribe({
-    //   next: data => {
-    //     this.lbHeight = data.height;
-    //   },
-    //   error: err => {
-    //     this.error = `${err || 'Something went wrong during'}  - Latest Block API call`
-    //   }
-    // }).add(() => {
-    //   console.log('API call is completed.');
-    // })
+  ngOnInit(): void {}
+
+  onSubmit() {
+    this.submitted = true;
+    this.router.navigate(['/transactions', this.bctAddress]);
   }
 
   // setMessage(msg: string, error = true, success?: false, warning?: false, info?: false) {
@@ -34,5 +31,4 @@ export class LayoutComponent implements OnInit {
   //     'error-msg': error
   //   }
   // }
-
 }

@@ -1,1 +1,29 @@
-<app-transaction></app-transaction>
+<div class="bct-search" [hidden]="submitted">
+  <form (ngSubmit)="onSubmit()" #bctTxnSeachFm="ngForm">
+    <div>
+      <input
+        type="search"
+        [(ngModel)]="bctAddress"
+        name="bctaddress"
+        #bctaddress="ngModel"
+        [pattern]="bctRegex"
+        placeholder="Enter BTC address to list transactions."
+        required
+        size="35"
+      />
+      <div *ngIf="bctaddress.errors?.pattern" class="error-msg">
+        Bitcount address is not valid one.
+      </div>
+    </div>
+    <div>
+      <button type="submit" [disabled]="!bctTxnSeachFm.form.valid" class="btn-search">
+        Submit
+      </button>
+    </div>
+    <div>
+      <button type="button" (click)="bctTxnSeachFm.reset()" class="btn-reset">
+        Reset
+      </button>
+    </div>
+  </form>
+</div>

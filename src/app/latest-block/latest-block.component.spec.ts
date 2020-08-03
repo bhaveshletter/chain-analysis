@@ -8,9 +8,8 @@ describe('LatestBlockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LatestBlockComponent ]
-    })
-    .compileComponents();
+      declarations: [LatestBlockComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

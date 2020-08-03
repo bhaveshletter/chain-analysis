@@ -14,4 +14,6 @@ export interface IDetail {
   vout_sz: number;
   weight: number;
   ver: number;
+  message: string;
+  status_code: number;
 }
