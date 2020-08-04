@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class EpochToTimestampPipe implements PipeTransform {
   transform(epoch: number): string {
     if (epoch) {
-      return new Date(epoch * 1000).toDateString();
+      return new Date(epoch * 1000).toString();
     } else {
       return '';
     }
