@@ -1,0 +1,10 @@
+<div *ngIf="acknowledgementService.messages.length">
+  <div class="error-list">
+    <div
+      class="error-msg"
+      *ngFor="let message of acknowledgementService.messages"
+    >
+      {{ message }}
+    </div>
+  </div>
+</div>

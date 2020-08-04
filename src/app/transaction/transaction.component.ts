@@ -45,7 +45,6 @@ export class TransactionComponent implements OnInit {
       .getTransaction(this.bctAddress)
       .subscribe({
         next: (data) => {
-          console.log(data);
           if (data['status_code']) {
             this.onRoot();
           } else {
