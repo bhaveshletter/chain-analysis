@@ -21,4 +21,10 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it("should have title value 'Chain Analysis'", () => {
+    let title = 'Chain Analysis';
+
+    expect(component.title).toEqual(title)
+  });
 });

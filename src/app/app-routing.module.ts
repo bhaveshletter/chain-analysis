@@ -9,13 +9,15 @@ import { Page404Component } from './page404/page404.component';
   imports: [
     RouterModule.forRoot([
       { path: 'home', component: LayoutComponent },
-      { path: 'transactions/:id', component: TransactionComponent },      
-      { path: 'transaction-details/:id', component: TransactionDetailComponent },
+      { path: 'transactions/:id', component: TransactionComponent },
+      {
+        path: 'transaction-details/:id',
+        component: TransactionDetailComponent,
+      },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: '**', component: Page404Component, pathMatch: 'full' }
-    ])  
+      { path: '**', component: Page404Component, pathMatch: 'full' },
+    ]),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-
-export class AppRoutingModule { }
+export class AppRoutingModule {}
