@@ -2,7 +2,7 @@ import { SatoshiToCoinPipe } from './satoshi-to-coin.pipe';
 import { async } from '@angular/core/testing';
 
 describe('SatoshiToCoinPipe', () => {
-  var pipe = new SatoshiToCoinPipe();
+  let pipe = new SatoshiToCoinPipe();
 
   beforeEach(async(() => {
     pipe = new SatoshiToCoinPipe();

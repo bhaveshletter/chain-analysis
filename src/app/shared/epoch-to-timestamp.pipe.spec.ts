@@ -2,7 +2,7 @@ import { EpochToTimestampPipe } from './epoch-to-timestamp.pipe';
 import { async } from '@angular/core/testing';
 
 describe('EpochToTimestampPipe', () => {
-  var pipe = new EpochToTimestampPipe();
+  let pipe = new EpochToTimestampPipe();
 
   beforeEach(async(() => {
     pipe = new EpochToTimestampPipe();
@@ -16,7 +16,7 @@ describe('EpochToTimestampPipe', () => {
     expect(pipe.transform(undefined)).toBe('');
   });
 
-  it('should returns equal milli seconds in string of epoch\'s seconds', () => {
+  it("should returns equal milli seconds in string of epoch's seconds", () => {
     let datetime = new Date(),
       seconds = datetime.getSeconds(),
       milliSeconds = (seconds * 1000).toString();
