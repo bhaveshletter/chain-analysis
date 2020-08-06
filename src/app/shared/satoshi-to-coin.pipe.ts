@@ -5,6 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SatoshiToCoinPipe implements PipeTransform {
   transform(satoshi: number): number {
-    return satoshi / 100000000;
+    if (typeof satoshi == 'number') {
+      return satoshi / 100000000;
+    } else {
+      return 0;
+    }
   }
 }
