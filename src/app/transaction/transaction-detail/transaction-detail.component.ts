@@ -19,12 +19,8 @@ export class TransactionDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getProduct(this.route.snapshot.paramMap.get('id'));
-  }
-
-  getProduct(id: string): void {
     this.bitcoinService
-      .getTransactionDetail(id)
+      .getTransactionDetail(this.route.snapshot.paramMap.get('id'))
       .subscribe({
         next: (data) => {
           if (data['status_code']) {

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page404.component.sass'],
 })
 export class Page404Component implements OnInit {
+  message: string = "Page doesn't EXISTS!";
   constructor() {}
 
   ngOnInit(): void {}

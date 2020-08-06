@@ -5,18 +5,17 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BitcoinService } from '../bitcoin.service';
 import { of } from 'rxjs';
-import { Observable, throwError } from 'rxjs';
 
 describe('TransactionComponent', () => {
   let component: TransactionComponent,
     fixture: ComponentFixture<TransactionComponent>,
     mockBitcoinService,
-    TRANSACTIONS;
+    TRANSACTION;
 
   beforeEach(async(() => {
     mockBitcoinService = jasmine.createSpyObj(['getTransaction']);
 
-    TRANSACTIONS = {
+    TRANSACTION = {
       message: '',
       status_code: '',
       hash160: 'b169f2b0b866db05900b93a5d76345f18d3afb24',
@@ -66,7 +65,7 @@ describe('TransactionComponent', () => {
   });
 
   it('should get transactions from the service', () => {
-    mockBitcoinService.getTransaction.and.returnValue(of(TRANSACTIONS));
+    mockBitcoinService.getTransaction.and.returnValue(of(TRANSACTION));
 
     expect(component.transactions['txs'].length).toBe(1);
   });
