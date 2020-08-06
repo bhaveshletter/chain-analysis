@@ -15,9 +15,7 @@ describe('LayoutComponent', () => {
       imports: [
         FormsModule,
         HttpClientTestingModule,
-        RouterTestingModule.withRoutes([
-          { path: 'transactions/:id', component: LayoutComponent },
-        ]),
+        RouterTestingModule
       ],
       providers: [],
       declarations: [LayoutComponent],
