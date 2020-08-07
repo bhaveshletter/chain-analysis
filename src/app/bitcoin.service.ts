@@ -31,7 +31,7 @@ export class BitcoinService {
     );
   }
 
-  getTransaction(bct_address: string): Observable<ITransaction[]> {
+  getTransactions(bct_address: string): Observable<ITransaction[]> {
     this.acknowledgementService.clear();
     let url = `${this.baseUrl}/rawaddr/${bct_address}`;
     return this.http.get<ITransaction[]>(url).pipe(

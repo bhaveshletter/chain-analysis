@@ -42,7 +42,7 @@ export class TransactionComponent implements OnInit {
   ngOnInit(): void {
     this.bctAddress = this.params.snapshot.paramMap.get('id');
     this.bitcoinService
-      .getTransaction(this.bctAddress)
+      .getTransactions(this.bctAddress)
       .subscribe({
         next: (data) => {
           if (data['status_code']) {

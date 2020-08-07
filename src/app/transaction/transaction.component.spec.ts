@@ -5,6 +5,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BitcoinService } from '../bitcoin.service';
 import { of } from 'rxjs';
+import { EpochToTimestampPipe } from '../shared/epoch-to-timestamp.pipe';
+import { SatoshiToCoinPipe } from '../shared/satoshi-to-coin.pipe';
 
 describe('TransactionComponent', () => {
   let component: TransactionComponent,
@@ -13,8 +15,6 @@ describe('TransactionComponent', () => {
     TRANSACTION;
 
   beforeEach(async(() => {
-    mockBitcoinService = jasmine.createSpyObj(['getTransaction']);
-
     TRANSACTION = {
       message: '',
       status_code: '',
@@ -46,9 +46,16 @@ describe('TransactionComponent', () => {
       ],
     };
 
+    mockBitcoinService = jasmine.createSpyObj(BitcoinService, {
+      getTransactions: of(TRANSACTION),
+    });
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
-      declarations: [TransactionComponent],
+      declarations: [
+        TransactionComponent,
+        EpochToTimestampPipe,
+        SatoshiToCoinPipe,
+      ],
       providers: [{ provide: BitcoinService, useValue: mockBitcoinService }],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
@@ -65,8 +72,8 @@ describe('TransactionComponent', () => {
   });
 
   it('should get transactions from the service', () => {
-    mockBitcoinService.getTransaction.and.returnValue(of(TRANSACTION));
+    mockBitcoinService.getTransactions.and.returnValue(of(TRANSACTION));
 
-    expect(component.transactions['txs'].length).toBe(1);
+    expect(component.transactions.length).toBe(1);
   });
 });
