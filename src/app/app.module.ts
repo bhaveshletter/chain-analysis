@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LatestBlockComponent } from './latest-block/latest-block.component';
 import { TransactionComponent } from './transaction/transaction.component';
@@ -28,7 +30,14 @@ import { AcknowledgementComponent } from './acknowledgement/acknowledgement.comp
     EpochToTimestampPipe,
     AcknowledgementComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ScrollingModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

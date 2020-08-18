@@ -8,10 +8,20 @@
   />
 </div>
 
-<div class="txn-result">
-  <div *ngFor="let transaction of filteredTransactions" class="txn-item">
+<cdk-virtual-scroll-viewport
+  itemSize="10"
+  class="txn-result"
+  (scrolledIndexChange)="nextPage($event)"
+>
+  <div
+    *cdkVirtualFor="
+      let transaction of filteredTransactions;
+      let i = index;
+      trackBy: trackByIndex
+    "
+    class="txn-item"
+  >
     <div class="txn-time">
-      <!-- TODO: use built in pipe within custom pipe -->
       {{ transaction.time | epochToTimestamp | date: "yyyy-MM-dd HH:mm" }}
     </div>
 
@@ -32,4 +42,4 @@
 
     <div class="txn-length">[{{ transaction.out.length }}]</div>
   </div>
-</div>
+</cdk-virtual-scroll-viewport>
